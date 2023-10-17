@@ -5,10 +5,9 @@ import { dropToken, saveToken } from '../services/token';
 import { redirectToRoute } from './actions';
 import { TFilms } from '../types/films';
 import { TFilm } from '../types/film';
-import { TUser } from '../types/user';
 import { TMyList } from '../types/my-list';
 import { TAddReview, TReviews } from '../types/reviews';
-import { TAuthData } from '../types/auth-data';
+import { TAuthData, TUserData } from '../types/auth-data';
 import { APIRoute, AppRoute, NameSpace } from '../const';
 
 type TExtra = {
@@ -94,18 +93,18 @@ export const addReviewAction = createAsyncThunk<
   }
 );
 
-export const checkAuthAction = createAsyncThunk<TUser, undefined, TExtra>(
+export const checkAuthAction = createAsyncThunk<TUserData, undefined, TExtra>(
   `${NameSpace.User}/checkAuth`,
   async (_arg, { extra: api }) => {
-    const { data } = await api.get<TUser>(APIRoute.Login);
+    const { data } = await api.get<TUserData>(APIRoute.Login);
     return data;
   }
 );
 
-export const loginAction = createAsyncThunk<TUser, TAuthData, TExtra>(
+export const loginAction = createAsyncThunk<TUserData, TAuthData, TExtra>(
   `${NameSpace.User}/login`,
   async ({ email, password }, { extra: api }) => {
-    const { data } = await api.post<TUser>(APIRoute.Login, {
+    const { data } = await api.post<TUserData>(APIRoute.Login, {
       email,
       password,
     });

@@ -1,9 +1,10 @@
 import { TAppState, TUserProcess } from '../../types/state';
 import { NameSpace } from '../../const';
+import { TUserData } from '../../types/auth-data';
 
 export const getUser = (
   state: Pick<TAppState, NameSpace.User>
-): TUserProcess['user'] | null => state[NameSpace.User].user;
+): TUserData | null => state[NameSpace.User].user;
 
 export const getAuthorizationStatus = (
   state: Pick<TAppState, NameSpace.User>

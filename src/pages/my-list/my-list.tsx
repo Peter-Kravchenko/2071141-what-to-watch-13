@@ -1,20 +1,12 @@
-import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks';
 import { getMyList } from '../../store/films-data/films-data-selectors';
-import { fetchMyListAction } from '../../store/api-actions';
 import FilmCardsList from '../../components/film-cards-list/film-cards-list';
 import UserHeaderAuth from '../../components/user-header/user-header-auth';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
 
 function MyList(): JSX.Element {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchMyListAction());
-  }, [dispatch]);
-
   const favoriteFilms = useAppSelector(getMyList);
 
   return (
