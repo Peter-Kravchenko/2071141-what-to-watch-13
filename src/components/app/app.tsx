@@ -29,10 +29,15 @@ function App(): JSX.Element {
     dispatch(checkAuthAction());
     dispatch(fetchFilmsAction());
     dispatch(fetchPromoFilmAction());
-    dispatch(fetchMyListAction());
   }, [dispatch]);
 
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
+
+  useEffect(() => {
+    if (authorizationStatus === AuthorizationStatus.Auth) {
+      dispatch(fetchMyListAction());
+    }
+  });
 
   if (authorizationStatus === AuthorizationStatus.Unknown) {
     return <Loader />;

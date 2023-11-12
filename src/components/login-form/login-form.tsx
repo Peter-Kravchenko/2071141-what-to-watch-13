@@ -8,7 +8,7 @@ import { RequestStatus } from '../../const';
 
 const EMAIL_INVALID_MESSAGE = 'Please enter a valid email address';
 const PASSWORD_INVALID_MESSAGE =
-  'We cant  recognize this email and password combination. Please try again.';
+  'Password must contain at least one letter and one number';
 
 const emailPattern =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -57,6 +57,7 @@ function LoginForm() {
         className="sign-in__form"
         method="past"
         onSubmit={handleFormSubmit}
+        noValidate
       >
         {errorMessage && (
           <div className="sign-in__message">
