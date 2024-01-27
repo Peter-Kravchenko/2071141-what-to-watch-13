@@ -12,7 +12,6 @@ import Login from '../../pages/login/login';
 import MyList from '../../pages/my-list/my-list';
 import Player from '../../pages/player/player';
 import PrivateRoute from '../private-route/private-route';
-import Loader from '../loader/loader';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { useEffect } from 'react';
 import {
@@ -38,10 +37,6 @@ function App(): JSX.Element {
       dispatch(fetchMyListAction());
     }
   });
-
-  if (authorizationStatus === AuthorizationStatus.Unknown) {
-    return <Loader />;
-  }
 
   return (
     <HelmetProvider>

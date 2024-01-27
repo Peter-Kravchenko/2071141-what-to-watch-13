@@ -57,9 +57,15 @@ export const filmsData = createSlice({
       .addCase(fetchFilmAction.rejected, (state) => {
         state.filmFetchingStatus = RequestStatus.Rejected;
       })
+      .addCase(fetchSimilarFilmsAction.pending, (state) => {
+        state.similarFilmsFetchingStatus = RequestStatus.Pending;
+      })
       .addCase(fetchSimilarFilmsAction.fulfilled, (state, action) => {
         state.similarFilmsFetchingStatus = RequestStatus.Success;
         state.similarFilms = action.payload;
+      })
+      .addCase(fetchSimilarFilmsAction.rejected, (state) => {
+        state.similarFilmsFetchingStatus = RequestStatus.Rejected;
       })
       .addCase(fetchPromoFilmAction.pending, (state) => {
         state.promoFilmFetchingStatus = RequestStatus.Pending;
@@ -68,12 +74,18 @@ export const filmsData = createSlice({
         state.promoFilmFetchingStatus = RequestStatus.Success;
         state.promoFilm = action.payload;
       })
+      .addCase(fetchPromoFilmAction.rejected, (state) => {
+        state.promoFilmFetchingStatus = RequestStatus.Rejected;
+      })
       .addCase(fetchMyListAction.pending, (state) => {
         state.myListFetchingStatus = RequestStatus.Pending;
       })
       .addCase(fetchMyListAction.fulfilled, (state, action) => {
         state.myListFetchingStatus = RequestStatus.Success;
         state.myList = action.payload;
+      })
+      .addCase(fetchMyListAction.rejected, (state) => {
+        state.myListFetchingStatus = RequestStatus.Rejected;
       })
       .addCase(fetchReviewsAction.pending, (state) => {
         state.reviewsFetchingStatus = RequestStatus.Pending;

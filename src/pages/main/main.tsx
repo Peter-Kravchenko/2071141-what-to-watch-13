@@ -36,14 +36,16 @@ function Main(): JSX.Element {
       <FilmCardPromo />
       <div className="page-content">
         <section className="catalog">
-          <FilterGenre
-            genres={genres.slice(0, MAX_GENRES_COUNT)}
-            activeGenre={activeGenre}
-          />
           {films.length ? (
-            <Catatog films={filmsByGenre} />
+            <>
+              <FilterGenre
+                genres={genres.slice(0, MAX_GENRES_COUNT)}
+                activeGenre={activeGenre}
+              />
+              <Catatog films={filmsByGenre} />
+            </>
           ) : (
-            <h2>There are no films in database yet</h2>
+            <h2 className="catalog">There are no films in database yet</h2>
           )}
         </section>
         <Footer />

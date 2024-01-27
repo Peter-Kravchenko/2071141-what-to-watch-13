@@ -2,6 +2,9 @@ export const MAX_GENRES_COUNT = 9;
 
 export const ALL_GENRES = 'All genres';
 
+export const PROMO_NOT_FOUND_MOCK =
+  'https://13.design.htmlacademy.pro/static/film/background/Macbeth.jpg';
+
 export enum CommentLength {
   Min = 50,
   Max = 400,

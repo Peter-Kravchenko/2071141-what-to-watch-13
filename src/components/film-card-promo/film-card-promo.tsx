@@ -8,7 +8,7 @@ import {
 import MyListButton from '../buttons/my-list-button/my-list-button';
 import PlayButton from '../buttons/play-button/play-button';
 import Loader from '../loader/loader';
-import { RequestStatus } from '../../const';
+import { PROMO_NOT_FOUND_MOCK, RequestStatus } from '../../const';
 
 function FilmCardPromo(): JSX.Element {
   const promoFilm = useAppSelector(getPromoFilm);
@@ -56,7 +56,13 @@ function FilmCardPromo(): JSX.Element {
       </div>
     </section>
   ) : (
-    <div>Not found</div>
+    <section className="film-card">
+      <div className="film-card__bg">
+        <img src={PROMO_NOT_FOUND_MOCK} alt="promo not found mock" />
+      </div>
+      <h1 className="visually-hidden">WTW</h1>
+      <Header />
+    </section>
   );
 }
 
